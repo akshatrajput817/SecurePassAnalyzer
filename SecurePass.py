@@ -3,30 +3,30 @@ import random
 import sys
 import os
 
-print("""Enter Your Os Name 
-1. Windows
-2. Linux/Mac
+try:
+    from rich import print
+    import pyfiglet
+except ModuleNotFoundError:
+    print("Required modules not found. Installing...")
+    os.system("python -m pip install rich pyfiglet")
+    from rich import print
+    import pyfiglet
+
+
+print("""[bold white]Enter Your Os Name[/bold white] 
+1. [bold blue]Windows[/bold blue]
+2. [bold red]Linux/Mac[/bold red]
 """)
 
 osname = input("Os Name (1/2) : ")
 
 if osname == "1":
-    requirements = input("Do You Want To Install Requirements For This Tool (y/n) : ")
-    time.sleep(0.8)
-    if requirements == "y":
-        os.system("python -m pip install rich")
-        os.system("python -m pip install pyfiglet")
-        from rich import print
-        import pyfiglet
-        print("[green]Installing Requirements...[/green]")
-        time.sleep(2)
-
         securepass = input("Do You Want To Run The Tool SecurePass Analyzer (y/n) : ")
-        print("[bold white]Running....[/bold white]")
-        time.sleep(2)
-        os.system("cls")
         time.sleep(1)
         if securepass == "y":
+            print("[bold white]Running....[/bold white]")
+            time.sleep(1)
+            os.system("cls")
             name = pyfiglet.figlet_format("SecurePass Analyzer", font="small")
             print(f"[bold blue]{name}[/bold blue]")
             time.sleep(2)
@@ -107,29 +107,13 @@ if osname == "1":
                        print("[green]Thanks For Using It...[/green]")
         else:
             print("[green]Thanks For Using It...[/green]")
-
-    else:
-        print("Skipping installation")
-        time.sleep(1.5)
-        print("This Tool Is Only Run With Install Requirements")
-
 else:
-    requirements = input("Do You Want To Install Requirements For This Tool (y/n) : ")
-    time.sleep(0.5)
-    if requirements == "y":
-        os.system("python -m pip install rich")
-        os.system("python -m pip install pyfiglet")
-        from rich import print
-        import pyfiglet
-        print("[green]Installing required modules...[/green]")
-        time.sleep(2)
-
         securepass = input("Do You Want To Run The Tool SecurePass Analyzer (y/n) : ")
-        print("[bold white]Running....[/bold white]")
-        time.sleep(2)
-        os.system("clear")
         time.sleep(1)
         if securepass == "y":
+            print("[bold white]Running....[/bold white]")
+            time.sleep(1)
+            os.system("clear")
             name = pyfiglet.figlet_format("SecurePass Analyzer", font="small")
             print(f"[bold blue]{name}[/bold blue]")
             time.sleep(2)
@@ -210,9 +194,4 @@ else:
                        print("[green]Thanks For Using It...[/green]")
         else:
             print("[green]Thanks For Using It...[/green]")
-
-    else:
-        print("Skipping installation")
-        time.sleep(1.5)
-        print("This Tool Is Only Run With Install Requirements")
 
